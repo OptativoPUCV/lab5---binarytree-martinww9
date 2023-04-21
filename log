@@ -2,3 +2,14 @@ Fri 21 Apr 2023 04:02:27 AM UTC:
  tests:  1|8
 total_score: 0/70
 dcd186b
+Fri 21 Apr 2023 04:02:56 AM UTC: 
+ treemap.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘createTreeMap’:
+treemap.c:45:23: error: ‘lt’ undeclared (first use in this function)
+   45 |     map->lower_than = lt;
+      |                       ^~
+treemap.c:45:23: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+190ca7a
