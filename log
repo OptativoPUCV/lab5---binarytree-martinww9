@@ -70,3 +70,25 @@ Fri 21 Apr 2023 04:08:04 AM UTC:
  tests:  11|6
 total_score: 15/70
 f532ebb
+Fri 21 Apr 2023 04:17:45 AM UTC: 
+ treemap.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:53:15: error: variable ‘parent’ set but not used [-Werror=unused-but-set-variable]
+   53 |     TreeNode* parent = NULL;
+      |               ^~~~~~
+test.c: In function ‘insertTreeMap’:
+test.c:503:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:606:1: error: expected declaration or statement at end of input
+  606 | }
+      | ^
+At top level:
+test.c:503:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+1a9fd4e
