@@ -62,18 +62,12 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
             return;
         }
     }
-
-    TreeNode* newNode = (TreeNode*) malloc(sizeof(TreeNode));
-    newNode->pair = (Pair*) malloc(sizeof(Pair));
-    newNode->pair->key = key;
-    newNode->pair->value = value;
-    newNode->left = NULL;
-    newNode->right = NULL;
-    newNode->parent = NULL;
+    Pair* pair = createPair(key, value);
+    TreeNode* newNode = createTreeNode(pair);
 
     if (parent == NULL) {
         tree->root = newNode;
-    } else if (tree->lower_than(key, parent->pair->key)) {
+    } else if (tree->lower_than(pair->key, parent->pair->key)) {
         parent->left = newNode;
         newNode->parent = parent;
     } else {
@@ -82,14 +76,11 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     }
 
     tree->current = newNode;
-
 }
 
 TreeNode * minimum(TreeNode * x){
-    while (x->left != NULL) {
-        x = x->left;
-    }
-    return x;
+
+    return NULL;
 }
 
 
@@ -103,23 +94,7 @@ void eraseTreeMap(TreeMap * tree, void* key){
     if (searchTreeMap(tree, key) == NULL) return;
     TreeNode* node = tree->current;
     removeNode(tree, node);
-  
-  if (node->left == NULL || node->right == NULL) {
-        TreeNode* child = node->left ? node->left : node->right;
-        if (node == tree->root) {
-            tree->root = child;
-            child->parent = NULL;
-        } else {
-            if (node == node->parent->left) {
-                node->parent->left = child;
-            } else {
-                node->parent->right = child;
-            }
-            child->parent = node->parent;
-        }
-        free(node);
-        return;
-    }
+
 }
 
 
