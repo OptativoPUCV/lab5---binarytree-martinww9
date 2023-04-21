@@ -44,3 +44,23 @@ test.c:503:5: error: ‘main’ defined but not used [-Werror=unused-function]
 cc1: all warnings being treated as errors
 Compilation failed
 57b7dae
+Fri 21 Apr 2023 04:07:36 AM UTC: 
+ treemap.c | 3 +++
+ 1 file changed, 3 insertions(+)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:59:27: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+   59 |             return current->pair;
+      |                    ~~~~~~~^~~~~~
+treemap.c:49:6: note: declared here
+   49 | void insertTreeMap(TreeMap * tree, void* key, void * value) {
+      |      ^~~~~~~~~~~~~
+treemap.c:62:12: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+   62 |     return NULL;
+      |            ^~~~
+treemap.c:49:6: note: declared here
+   49 | void insertTreeMap(TreeMap * tree, void* key, void * value) {
+      |      ^~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+da4c4ae

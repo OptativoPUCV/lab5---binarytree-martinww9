@@ -57,6 +57,9 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         } else {
             tree->current = current;
             return current->pair;
+              }
+    }
+    return NULL;
 
 }
 
