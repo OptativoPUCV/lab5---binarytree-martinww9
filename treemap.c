@@ -103,7 +103,23 @@ void eraseTreeMap(TreeMap * tree, void* key){
     if (searchTreeMap(tree, key) == NULL) return;
     TreeNode* node = tree->current;
     removeNode(tree, node);
-
+  
+  if (node->left == NULL || node->right == NULL) {
+        TreeNode* child = node->left ? node->left : node->right;
+        if (node == tree->root) {
+            tree->root = child;
+            child->parent = NULL;
+        } else {
+            if (node == node->parent->left) {
+                node->parent->left = child;
+            } else {
+                node->parent->right = child;
+            }
+            child->parent = node->parent;
+        }
+        free(node);
+        return;
+    }
 }
 
 
